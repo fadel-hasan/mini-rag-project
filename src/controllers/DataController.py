@@ -8,7 +8,7 @@ import re
 
 class DataController(BaseController):
 
-
+    
     def __init__(self):
         super().__init__()
         self.size_scale = 1024 * 1024  # 1 MB
@@ -36,6 +36,7 @@ class DataController(BaseController):
         clean_name = self.get_clean_file_name(orign_file_name)
 
         unique_file_name = f"{random_filename}_{clean_name}"
+        
         new_file_path = os.path.join(project_path,
                                       unique_file_name)
         
@@ -45,7 +46,7 @@ class DataController(BaseController):
             new_file_path = os.path.join(project_path,
                                       unique_file_name)
             
-        return new_file_path
+        return new_file_path, unique_file_name
         
 
     def get_clean_file_name(self,orign_file_name:str):
